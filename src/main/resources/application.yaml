@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: apistore
+  datasource:
+    url: jdbc:postgresql://localhost:5432/apistoredb
+    username: postgres
+    password: piwpiwololo
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: always
+  jpa:
+    hibernate:
+      ddl-auto: update # создание структур Hibernate'ом
+    show-sql: true # TODO: оставлю так для наглядности, явно видно все запросы в консоли, и задание не запрещает. Помогает при отладке.
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true # для красоты
+
+jwt:
+  secret: "1040c945531d41e9c72a39b222c7e3513c5da2b3637657fa663f0319ba355636"  # 256битный ключ с https://jwtsecrets.com/#generator
+  expiration: 86400000  # 24часа
